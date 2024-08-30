@@ -1,0 +1,40 @@
+/* SongItem.css */
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.song-cover {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.song-info {
+    flex-grow: 1;
+}
+
+.song-name {
+    margin: 0;
+    font-size: px;
+    color: #ffffff;
+}
+
+.song-artist {
+    margin: 0;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.song-duration {
+    margin-left: 15px;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}

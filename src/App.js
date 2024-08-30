@@ -1,23 +1,79 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
+import Player from './components/Player';
+import SongList from './components/SongList';
+import SearchBar from './components/SearchBar';
+import Sidebar from './components/Sidebar';
+import Tabs from './components/Tabs';
+
+const API_URL = 'https://cms.samespace.com/items/songs';
 
 function App() {
+  const [songs, setSongs] = useState([]);
+  const [filteredSongs, setFilteredSongs] = useState([]);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('#333'); 
+  const [activeTab, setActiveTab] = useState('For You');
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const response = await axios.get(API_URL);
+      setSongs(response.data.data);
+      setFilteredSongs(response.data.data);
+    };
+    fetchSongs();
+  }, []);
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleNext = () => {
+    setCurrentSongIndex((prevIndex) => (prevIndex + 1) % filteredSongs.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentSongIndex(
+      (prevIndex) => (prevIndex - 1 + filteredSongs.length) % filteredSongs.length
+    );
+  };
+
+  const handleSearch = (query) => {
+    const filtered = songs.filter((song) =>
+      song.name.toLowerCase().includes(query.toLowerCase()) ||
+      song.artist.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredSongs(filtered);
+  };
+  useEffect(() => {
+    if (filteredSongs[currentSongIndex]) {
+      setBackgroundColor(filteredSongs[currentSongIndex].accent);
+    }
+  }, [currentSongIndex, filteredSongs]);
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    // You can add logic here to filter the songs based on the tab selected.
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"  style={{ backgroundColor }}>
+       <Sidebar backgroundColor={backgroundColor} />
+      <div className="main-content">
+      <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
+        <SearchBar onSearch={handleSearch} backgroundColor={backgroundColor} />
+        <SongList
+          songs={filteredSongs}
+          currentSongIndex={currentSongIndex}
+          setCurrentSongIndex={setCurrentSongIndex}
+        />
+      </div>
+      <Player
+        song={filteredSongs[currentSongIndex]}
+        isPlaying={isPlaying}
+        onPlayPause={handlePlayPause}
+        onNext={handleNext}
+        onPrev={handlePrev}
+      />
     </div>
   );
 }

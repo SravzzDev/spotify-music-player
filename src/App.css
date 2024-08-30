@@ -1,38 +1,38 @@
+/* App.css */
 .App {
-  text-align: center;
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
+  width: 17%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  background-color: #111; /* Default sidebar color */
   color: white;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  flex:0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  /* width: 10%; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.song-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.player {
+  margin-top: 20px;
 }

@@ -1,0 +1,128 @@
+/* .player {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    width: 50%;
+  }
+  
+  .player-content {
+    text-align: center;
+  }
+  
+  .cover-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  button {
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  } */
+  .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: -40px;
+    /* flex: 1; */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+    width: 50%;
+  }
+  
+  .songs-details {
+    /* text-align: center; */
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+    width: 100%;
+  }
+  
+  .songs-name {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+  
+  .songs-artist {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #aaaaaa;
+  }
+  
+  .songs-image {
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+   
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .control-icon {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .control-icon:hover {
+    color: #1DB954; 
+  }
+  .gray-background {
+    background-color: #454745;
+    border-radius: 50%; 
+    padding: 10px;
+    color: white; 
+    font-size: 12PX;
+    font-weight: bold;
+  }
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .progress-bar-filled {
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

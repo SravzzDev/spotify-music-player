@@ -1,0 +1,40 @@
+.song-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.song-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-list li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.song-list li.active {
+  background-color: #444;
+}
+
+.song-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.song-info h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.song-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #bbb;
+}

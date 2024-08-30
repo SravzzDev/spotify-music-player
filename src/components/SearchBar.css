@@ -1,0 +1,32 @@
+.search-bar {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid gray;
+    transition: background-color 0.3s ease;
+    outline: none;
+    font-size: 1em;
+    box-sizing: border-box; 
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 15px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+  }
+  .search-bar input {
+    color: #fff; /* Ensure text color is white */
+  }
+  
+  .search-bar input::placeholder {
+    opacity: 0.7; /* Adjust placeholder opacity for visibility */
+  }
