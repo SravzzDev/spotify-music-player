@@ -19,7 +19,7 @@ function SongList({ songs, currentSongIndex, setCurrentSongIndex }) {
   }, [songs]);
 
   const formatDuration = (duration) => {
-    if (!duration) return '0:00'; // Default duration if undefined
+    if (!duration) return '0:00';
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -36,7 +36,7 @@ function SongList({ songs, currentSongIndex, setCurrentSongIndex }) {
             cover={`https://cms.samespace.com/assets/${song.cover}`}
             onClick={() => setCurrentSongIndex(index)}
             isActive={index === currentSongIndex}
-            duration={formatDuration(durations[song.id])} // Pass formatted duration
+            duration={formatDuration(durations[song.id])}
           />
         ))}
       </ul>

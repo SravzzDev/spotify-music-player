@@ -11,9 +11,9 @@ function Player({ song, isPlaying, onPlayPause, onNext, onPrev }) {
 
   useEffect(() => {
     if (song && audioRef.current) {
-      audioRef.current.src = song.url; // Set the audio source
+      audioRef.current.src = song.url; 
       audioRef.current.load();
-      setProgress(0); // Reset progress on song change
+      setProgress(0);
       if (isPlaying) {
         audioRef.current.play();
       }
@@ -37,7 +37,7 @@ function Player({ song, isPlaying, onPlayPause, onNext, onPrev }) {
     };
 
     const handleEnded = () => {
-      onNext(); // Automatically move to the next song when the current one ends
+      onNext(); 
     };
 
     if (audioRef.current) {

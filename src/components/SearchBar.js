@@ -19,7 +19,7 @@ function SearchBar({ onSearch, backgroundColor }) {
         value={query}
         onChange={handleSearch}
         style={{
-            backgroundColor,   // Change background color of the input
+            backgroundColor,  
             color: '#fff', 
             fontWeight:"bold"    
           }}

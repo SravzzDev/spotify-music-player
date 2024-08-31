@@ -26,4 +26,31 @@
     border-radius: 50%;
     object-fit: cover;
   }
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+    }
   
+    .sidebar-header {
+      margin: 0;
+      flex: 1;
+    }
+  
+    .spotify-icon {
+      font-size: 1.5rem;
+    }
+  
+    .user-avatar {
+      flex: 1;
+      justify-content: flex-end;
+      margin: 0;
+    }
+  
+    .user-avatar img.user-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }

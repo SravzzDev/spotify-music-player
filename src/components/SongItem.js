@@ -1,4 +1,4 @@
-// SongItem.js
+
 import React from 'react';
 import './SongItem.css';
 

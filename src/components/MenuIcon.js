@@ -1,14 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import './MenuIcon.css'; // Create MenuIcon.css for styling
+import './MenuIcon.css'; 
 
-const MenuIcon = ({ onClick }) => {
+function MenuIcon({ onClick }) {
   return (
     <div className="menu-icon" onClick={onClick}>
-      <FontAwesomeIcon icon={faBars} />
+      <span>&#9776;</span> 
     </div>
   );
-};
+}
 
 export default MenuIcon;

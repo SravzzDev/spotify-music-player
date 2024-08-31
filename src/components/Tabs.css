@@ -20,7 +20,3 @@
   .tab:not(.active){
     color: grey;
   }
-  /* .tab:not(.active):hover {
-    color: grey;
-  } */
-  

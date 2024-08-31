@@ -1,4 +1,4 @@
-/* App.css */
+
 .App {
   display: flex;
   height: 100vh;
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #111; /* Default sidebar color */
+  background-color: #111;
   color: white;
   padding: 20px;
 }
@@ -23,6 +23,14 @@
   padding: 20px;
   /* width: 10%; */
 }
+.song-list-container {
+  flex: 1; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
 
 .search-bar {
   margin-bottom: 20px;
@@ -30,9 +38,175 @@
 
 .song-list {
   flex: 1;
-  overflow-y: auto;
+
 }
 
 .player {
   margin-top: 20px;
+}
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .sidebar-header {
+    margin: 0;
+    flex: 1;
+  }
+
+  .spotify-icon {
+    font-size: 1.5rem;
+  }
+
+  .user-avatar {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .user-avatar img.user-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .main-content {
+    padding: 10px;
+    flex: 1;
+  }
+
+  .tabs {
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .tab {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .player {
+    flex: 0 0 60%;
+    margin-top: 0;
+    padding: 10px;
+  }
+  
+}
+
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    flex: 1;
+    height: 100vh;
+  }
+
+  .tabs {
+    margin-bottom: 5px;
+  }
+
+
+  .song-list ul {
+    padding-left: 0;
+  }
+
+  .song-item {
+    padding: 8px;
+  }
+
+  .song-cover {
+    width: 40px;
+    height: 40px;
+  }
+
+  .song-info h3 {
+    font-size: 1em;
+  }
+
+  .song-info p {
+    font-size: 0.8em;
+  }
+
+  .song-duration {
+    font-size: 0.8em;
+  }
+}.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.song-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-list-container.open {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+.search-bar{
+  display: none;
+}
+  .sidebar {
+    display: none; 
+  }
+
+  .main-content {
+    flex: 1;
+    position: relative;
+  }
+
+  .song-list-container {
+    
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .player {
+    height: 60px;
+    width: 100%;
+  }
+}
+.song-list-container {
+  display: none; 
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.song-list-container.open {
+  display: block;
+  height: calc(100vh - 60px); 
+}
+.player{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    position: relative;
+  }.player{
+  display: none;
+}
 }

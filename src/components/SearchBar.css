@@ -24,9 +24,9 @@
     pointer-events: none;
   }
   .search-bar input {
-    color: #fff; /* Ensure text color is white */
+    color: #fff;
   }
   
   .search-bar input::placeholder {
-    opacity: 0.7; /* Adjust placeholder opacity for visibility */
+    opacity: 0.7; 
   }

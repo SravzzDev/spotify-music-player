@@ -6,7 +6,7 @@ import SongList from './components/SongList';
 import SearchBar from './components/SearchBar';
 import Sidebar from './components/Sidebar';
 import Tabs from './components/Tabs';
-
+import MenuIcon from './components/MenuIcon';
 const API_URL = 'https://cms.samespace.com/items/songs';
 
 function App() {
@@ -16,6 +16,12 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState('#333'); 
   const [activeTab, setActiveTab] = useState('For You');
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
+};
+
   useEffect(() => {
     const fetchSongs = async () => {
       const response = await axios.get(API_URL);
@@ -53,7 +59,7 @@ function App() {
   }, [currentSongIndex, filteredSongs]);
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    // You can add logic here to filter the songs based on the tab selected.
+   
   };
   return (
     <div className="App"  style={{ backgroundColor }}>
@@ -61,11 +67,14 @@ function App() {
       <div className="main-content">
       <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
         <SearchBar onSearch={handleSearch} backgroundColor={backgroundColor} />
+        <div className={`song-list-container ${isMenuOpen ? 'open' : ''}`}>
         <SongList
           songs={filteredSongs}
           currentSongIndex={currentSongIndex}
           setCurrentSongIndex={setCurrentSongIndex}
         />
+      </div>
+      <MenuIcon onClick={toggleMenu} />
       </div>
       <Player
         song={filteredSongs[currentSongIndex]}
